@@ -15,7 +15,6 @@ namespace CustomDecompiled
         {
             MainAsync();
             Console.ReadLine();
-            Thread.Sleep(120000);
         }
 
         static async Task MainAsync()

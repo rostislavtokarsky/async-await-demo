@@ -21,11 +21,11 @@ namespace CustomDecompiled
             {
                 if (state == 0)
                 {
-                    state = -1;
+                    //state = -1;
                 }
                 else if (state == 1)
                 {
-                    state = -1;
+                    //state = -1;
                     goto TR_0005;
                 }
                 else
