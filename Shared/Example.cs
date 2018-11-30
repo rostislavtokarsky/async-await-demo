@@ -86,5 +86,17 @@ namespace Shared
         {
             Console.WriteLine(e.Exception.Message);
         }
+
+
+        #region HandleAsyncAction
+        async void HandleAsyncAction()
+        {
+            Task t = null;
+            Foo(() => t = TaskWithBgOperation());
+            await t;
+        }
+
+        static void Foo(Action action) { }
+        #endregion
     }
 }

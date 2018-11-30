@@ -19,13 +19,13 @@ namespace CustomDecompiled
         {
             try
             {
-                //if (state == 0)
-                //{
-                //    state = -1;
-                //}
-                if (state == 1)
+                if (state == 0)
                 {
-                    //state = -1;
+                    state = -1;
+                }
+                else if (state == 1)
+                {
+                    state = -1;
                     goto TR_0005;
                 }
                 else
@@ -53,7 +53,8 @@ namespace CustomDecompiled
                 }
                 return;
                 TR_0005:
-                awaiter.GetResult();
+                result = awaiter.GetResult();
+                Console.WriteLine($"Google response: {result.StatusCode}");
                 state = -2;
                 builder.SetResult();
             }
