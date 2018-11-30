@@ -19,6 +19,7 @@ namespace Shared
             Console.WriteLine($"MainAsync started on {Environment.CurrentManagedThreadId} thread");
             try
             {
+
             }
             catch (Exception e)
             {
