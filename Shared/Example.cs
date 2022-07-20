@@ -17,6 +17,8 @@ namespace Shared
             TaskScheduler.UnobservedTaskException += TaskSchedulerUnobservedTaskException;
 
             new Example().MainAsync();
+            
+            //123 on fb
         }
 
 
