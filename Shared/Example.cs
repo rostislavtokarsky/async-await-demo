@@ -16,6 +16,7 @@ namespace Shared
             //789 on masta
             TaskScheduler.UnobservedTaskException += TaskSchedulerUnobservedTaskException;
 
+            //on masta should cause issues
             new Example().MainAsync();
         }
 
