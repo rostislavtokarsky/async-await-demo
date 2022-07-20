@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Shared
 {
@@ -10,6 +11,9 @@ namespace Shared
     {
         public static void Main()
         {
+        //123 on masta
+            TaskScheduler.UnobservedTaskException += TaskSchedulerUnobservedTaskException;
+
             new Example().MainAsync();
         }
 
@@ -19,25 +23,24 @@ namespace Shared
             Console.WriteLine($"MainAsync started on {Environment.CurrentManagedThreadId} thread");
             try
             {
-
+                await new InputAwaiter("Hello");
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
-
             Console.WriteLine($"MainAsync ended on {Environment.CurrentManagedThreadId} thread");
         }
 
         void SimpleVoidM()
         {
-            //throw new Exception($"I'm thown on {Environment.CurrentManagedThreadId} thread");
+            throw new Exception($"I'm thown on {Environment.CurrentManagedThreadId} thread");
             Console.WriteLine($"I'm SimpleVoidM running on {Environment.CurrentManagedThreadId} thread");
         }
 
         async void SimpleAsyncVoidM()
         {
-            //throw new Exception($"I'm thown on {Environment.CurrentManagedThreadId} thread");
+            throw new Exception($"I'm thown on {Environment.CurrentManagedThreadId} thread");
             Console.WriteLine($"I'm SimpleAsyncVoidM running on {Environment.CurrentManagedThreadId} thread");
         }
 
@@ -57,6 +60,7 @@ namespace Shared
             Console.WriteLine($"TaskWithBgOperation after await {Environment.CurrentManagedThreadId} thread");
         }
 
+        //Test Deadlock on UI app with .Wait for this method call.
         async Task<int> TaskDelayWithValue()
         {
             Console.WriteLine($"TaskDelayWithValue before delay {Environment.CurrentManagedThreadId}");
