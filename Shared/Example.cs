@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Threading;
- 
+
 namespace Shared
 {
     public class Example
@@ -15,11 +15,10 @@ namespace Shared
             //456 on masta
             //789 on masta
             TaskScheduler.UnobservedTaskException += TaskSchedulerUnobservedTaskException;
+
+            //on masta should cause issues
 //oh-ohu on fb
             new Example().MainAsync();
-            
-            //123 on fb
-            //456 on fb
         }
 
 
