@@ -11,9 +11,7 @@ namespace Shared
     {
         public static void Main()
         {
-            //456
-        //123 on masta
-        //789
+            //123 on masta
             TaskScheduler.UnobservedTaskException += TaskSchedulerUnobservedTaskException;
 
             new Example().MainAsync();
